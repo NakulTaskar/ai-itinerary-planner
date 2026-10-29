@@ -1,0 +1,56 @@
+/* ---------- Hero ---------- */
+.hero {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+    padding: 2.2rem 2rem;
+    border-radius: 18px;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25);
+}
+.hero h1 { color: #fff; margin: 0; font-size: 2.3rem; }
+.hero p  { color: #e0e7ff; margin: 0.4rem 0 0; font-size: 1.05rem; }
+
+/* ---------- Trip summary ---------- */
+.trip-title { font-size: 1.8rem; font-weight: 700; margin: 0.5rem 0 0.2rem; }
+.trip-overview { color: #475569; font-size: 1.02rem; margin-bottom: 1rem; }
+
+/* ---------- Activity cards ---------- */
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #6366f1;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+.card.Morning   { border-left-color: #f59e0b; }
+.card.Afternoon { border-left-color: #0ea5e9; }
+.card.Evening   { border-left-color: #8b5cf6; }
+.card .when  { font-size: 0.78rem; font-weight: 700; letter-spacing: .06em;
+               text-transform: uppercase; color: #64748b; }
+.card .title { font-size: 1.12rem; font-weight: 650; color: #0f172a; margin: 0.15rem 0; }
+.card .desc  { color: #334155; margin: 0.2rem 0 0.5rem; }
+.card .meta  { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+.pill {
+    display: inline-block;
+    background: #eef2ff;
+    color: #4338ca;
+    padding: 0.15rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+.pill.cost { background: #ecfdf5; color: #047857; }
+
+/* ---------- Day footer ---------- */
+.day-footer {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 0.8rem 1.1rem;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
+    color: #334155;
+}
+
+.footer-note { text-align: center; color: #94a3b8; font-size: .85rem; margin-top: 2rem; }
