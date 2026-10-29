@@ -1,60 +1,58 @@
-# ✈️ AI Itinerary Planner
+# ✈️ Itinerary Planner
 
-A **Generative AI** web app that creates personalised, day-by-day travel itineraries.
-Enter a destination, dates, budget, travel style and interests — Google **Gemini**
-generates a structured plan with activities, food picks, costs, packing list and local tips.
+A smart, automated travel planning app that crafts personalised, day-by-day travel itineraries. Enter a destination, dates, budget, travel style, and interests — the platform instantly generates a complete, structured plan with activities, dining picks, cost estimates, a packing checklist, and local tips.
 
 ---
 
 ## ✨ Features
-- 🧠 **LLM-powered planning** using Google Gemini (`gemini-flash-latest` by default — always the newest Flash model)
-- 🧩 **Structured output** — Gemini returns JSON validated by a Pydantic schema, rendered as cards
-- 🗂️ Day-by-day **tabs** with Morning / Afternoon / Evening activity cards
-- 💰 Cost estimates per activity, per day and for the whole trip
-- 🎒 Interactive packing checklist + local tips
-- ⬇️ Export as **Markdown** or **JSON**
-- 🎛️ Model selector and creativity (temperature) slider
-- 🧪 **Demo mode** — works without an API key (great for presentations)
+- ⚡ **Intelligent Planning Engine** that curates comprehensive, tailored travel plans
+- 🧩 **Structured Itinerary Layout** rendered as clean, intuitive activity cards
+- 🗂️ Day-by-day **tabs** with Morning / Afternoon / Evening activity timelines
+- 💰 Cost estimates per activity, per day, and for the entire trip
+- 🎒 Interactive packing checklist + practical local travel tips
+- ⬇️ One-click export as **Markdown** or **JSON**
+- 🎛️ Customisable pace, budget, and travel interests
+- 🧪 **Demo Mode** — explore pre-built sample trips instantly
 
 ## 🏗️ Architecture
 ```
- User ──► Streamlit UI (app.py)
+ User ──► Web UI (app.py)
               │  TripRequest
               ▼
-        prompts.py  ──►  Prompt engineering (system instruction + user prompt)
+        prompts.py  ──►  Template & parameter formulation
               │
               ▼
-          llm.py    ──►  Google Gemini API  (response_schema = Itinerary)
+          llm.py    ──►  Planning Engine API (response_schema = Itinerary)
               │  JSON
               ▼
-        models.py   ──►  Pydantic validation  ──►  Cards / tabs / downloads
+        models.py   ──►  Data validation (Pydantic)  ──►  Cards / tabs / downloads
 ```
 
-## 📁 Project structure
+## 📁 Project Structure
 ```
 itinerary-planner/
-├── app.py                 # Streamlit UI
+├── app.py                 # Main Web UI (Streamlit)
 ├── planner/
-│   ├── models.py          # TripRequest + Itinerary schemas (Pydantic)
-│   ├── prompts.py         # System instruction & prompt template
-│   ├── llm.py             # Gemini API call with structured output
-│   ├── export.py          # Markdown export
-│   └── sample.py          # Demo itinerary (no API key needed)
-├── assets/style.css       # Custom styling
-├── .streamlit/config.toml # Theme
-├── tests/test_planner.py  # Unit tests (no network)
-├── requirements.txt
-├── .env.example
-├── run.sh / run.bat       # One-command launchers
-└── README.md
+│   ├── models.py          # TripRequest & Itinerary data schemas
+│   ├── prompts.py         # Travel prompt & instruction templates
+│   ├── llm.py             # Planning engine client integration
+│   ├── export.py          # Markdown & file export handlers
+│   └── sample.py          # Pre-built sample trip data
+├── assets/style.css       # Custom styling & card theme
+├── .streamlit/config.toml # Theme configuration
+├── tests/test_planner.py  # Automated unit test suite
+├── requirements.txt       # Project dependencies
+├── .env.example           # Environment configuration template
+├── run.sh / run.bat       # Single-command launchers (macOS/Linux & Windows)
+└── README.md              # Project documentation
 ```
 
-## 🚀 Quick start
+## 🚀 Quick Start
 
-### 1. Get a free Gemini API key
-👉 https://aistudio.google.com/apikey
+### 1. Prerequisites & API Setup
+Grab an API key at https://aistudio.google.com/apikey
 
-### 2. Run it
+### 2. Run the App
 **macOS / Linux**
 ```bash
 ./run.sh
@@ -63,34 +61,31 @@ itinerary-planner/
 ```bat
 run.bat
 ```
-**Manual**
+**Manual Launch**
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-cp .env.example .env               # then paste your key into .env
+cp .env.example .env               # Add your key to .env
 streamlit run app.py
 ```
-The app opens at http://localhost:8501. You can also paste your key in the sidebar.
+The application opens in your browser at `http://localhost:8501`.
 
-### 3. Run tests (optional)
+### 3. Run Tests (Optional)
 ```bash
 pip install pytest && pytest -q
 ```
 
-## 🛠️ Tech stack
+## 🛠️ Tech Stack
 | Layer | Tool |
 |---|---|
 | Frontend | Streamlit |
-| LLM | Google Gemini via `google-genai` SDK |
-| Validation | Pydantic v2 |
-| Config | python-dotenv |
+| Planning Engine | Google Gemini (`google-genai` SDK) |
+| Data Validation | Pydantic v2 |
+| Environment Config | python-dotenv |
 
-## 🔮 Future scope
-- Maps view of each day's route
-- Live weather & hotel/flight suggestions
-- Chat-based editing ("make day 2 more relaxed")
-- Save & share itineraries
-
----
-⚠️ *AI-generated plans can be inaccurate — always verify opening hours and prices.*
+## 🔮 Future Scope
+- Interactive map view with route navigation
+- Live weather forecasts & flight/hotel price integrations
+- In-app interactive itinerary adjustments
+- Social sharing and bookmarking itineraries

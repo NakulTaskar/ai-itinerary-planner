@@ -175,5 +175,4 @@ def render(it: Itinerary) -> None:
 if "itinerary" in st.session_state:
     render(st.session_state.itinerary)
 
-st.markdown('<div class="footer-note">AI-generated plans can be inaccurate — '
-            'verify opening hours and prices before you travel.</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer-note">Always verify opening hours, bookings, and local prices before you travel.</div>', unsafe_allow_html=True)
